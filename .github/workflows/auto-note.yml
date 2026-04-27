@@ -24,16 +24,11 @@ jobs:
             echo "skip=false" >> $GITHUB_OUTPUT
           fi
 
-      - name: Run commit bot
+      - name: Run commit bot and push
         if: steps.skip_check.outputs.skip == 'false'
         run: |
           info="$(date '+%A, %d %B %Y - %H:%M WIB')"
           echo "$info" >> note.txt
-          echo "$info"
-
-      - name: Push changes
-        if: steps.skip_check.outputs.skip == 'false'
-        run: |
           git config user.name "efacakaiha"
           git config user.email "${{ secrets.GIT_EMAIL }}"
           branch=$(git rev-parse --abbrev-ref HEAD)
