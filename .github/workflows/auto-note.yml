@@ -29,7 +29,7 @@ jobs:
         run: |
           info="$(date '+%A, %d %B %Y - %H:%M WIB')"
           echo "$info" >> note.txt
-          git config user.name "efacakaiha"
+          git config user.name "needoksigen"
           git config user.email "${{ secrets.GIT_EMAIL }}"
           branch=$(git rev-parse --abbrev-ref HEAD)
           git add note.txt
